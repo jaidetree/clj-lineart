@@ -1,0 +1,50 @@
+#+title: CGI-Clojure Line Art Generator
+
+Generates a slightly-randomized, generative line art design based on a bg and fg parameters.
+
+* Usage
+
+https://cgi.eccentric-j.com/lineart/lineart.svg?bg=000000&fg=ffffff
+
+*BG*
+
+Background color of the canvas.
+
+*FG*
+
+Foreground color for lines. The script will lower their opacity to prevent the
+contrast from becoming distracting.
+
+** Tiled as a background-image
+
+#+begin_src css
+.generative-bg {
+    height: 100px;
+    background: url('https://cgi.eccentric-j.com/lineart/lineart.svg?bg=363333&fg=F3C581');
+    background-repeat: repeat-x;
+}
+#+end_src
+
+* Example
+
+Below is a saved response from the request, note that each request will look
+slightly different.
+
+[[./doc/example.svg]]
+
+** Preview within the Org Doc
+
+#+begin_src bash :results file drawer :file lineart.svg :output-dir test
+bb -cp src test/lineart.clj "bg=363333&fg=F3C581"
+#+end_src
+
+** Save output from bash
+
+#+begin_src bash :results none
+bb -cp src test/lineart.clj "bg=363333&fg=F3C581" > test/lineart.svg
+#+end_src
+
+* How it Works
+
+Basically just a Clojure script over cgi that generates the SVG XML. More
+information is available at https://eccentric-j.com/blog/clojure-like-its-php.html.

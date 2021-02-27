@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase "/lineart/"
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . ./lineart.clj [PT,QSA]
+</IfModule>
+AddHandler cgi-script .clj
