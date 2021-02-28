@@ -8,7 +8,7 @@ https://cgi.eccentric-j.com/lineart/lineart.svg?bg=000000&fg=ffffff
 
 *BG*
 
-Background color of the canvas.
+Background color of the canvas any valid hex color string should work.
 
 *FG*
 
